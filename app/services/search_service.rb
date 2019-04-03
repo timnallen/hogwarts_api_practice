@@ -18,7 +18,7 @@ class SearchService
   end
 
   def conn
-    Faraday.new(url: 'http://hogwarts-it.herokuapp.com') do |faraday|
+    Faraday.new(url: 'http://hogwarts-as-a-service.herokuapp.com') do |faraday|
       faraday.adapter  Faraday.default_adapter
     end
   end
