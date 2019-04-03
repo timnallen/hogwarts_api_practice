@@ -1,12 +1,18 @@
 class SearchService
-  def student_info(house)
-    get_json("/api/v1/house/#{house}#{auth}")[:data][0][:attributes][:students]
+  def student_info(house_id)
+    get_json("/api/v1/house/#{house_id}")
+  end
+
+  def get_house_id(house)
+    houses = get_json('/api/v1/house/')
+    house_info = houses.find { |hash| hash[:name] == house.capitalize }
+    house_info[:id]
   end
 
   private
 
   def auth
-    "?api_key=#{ENV['HOGWARTS_API_KEY']}"
+    ENV['HOGWARTS_API_KEY']
   end
 
   def get_json(url)
@@ -19,6 +25,7 @@ class SearchService
 
   def conn
     Faraday.new(url: 'http://hogwarts-as-a-service.herokuapp.com') do |faraday|
+      faraday.headers['x_api_key'] = auth
       faraday.adapter  Faraday.default_adapter
     end
   end
