@@ -9,7 +9,7 @@ feature 'as a User' do
     click_on 'Get Students'
 
     expect(current_path).to eq('/search')
-    expect(current_url).to include('house=Slytherin')
+    expect(current_url).to include('house=slytherin')
 
     expect(page).to have_content('22 Students')
 

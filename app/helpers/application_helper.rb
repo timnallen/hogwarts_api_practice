@@ -3,7 +3,7 @@ module ApplicationHelper
     [
       ['Griffyndor', 'Griffyndor'],
       ['Ravenclaw', 'Ravenclaw'],
-      ['Slytherin', 'Slytherin'],
+      ['Slytherin', 'slytherin'],
       ['Hufflepuff', 'Hufflepuff']
     ]
   end
